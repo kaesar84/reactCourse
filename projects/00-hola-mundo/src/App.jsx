@@ -8,7 +8,7 @@ export function App() {
     <>
       <section className="App">
         <TwitterFollowCard
-          isFollowing
+          isFollowing={true}
           formatUserName={format}
           userName="goku">
         Son Goku
@@ -16,7 +16,7 @@ export function App() {
         </TwitterFollowCard>
         
         <TwitterFollowCard
-          isFollowing
+          isFollowing ={false}
           formatUserName={format}
           userName="vegeta">
         Vegeta
