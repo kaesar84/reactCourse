@@ -10,22 +10,25 @@ export function App() {
         <TwitterFollowCard
           isFollowing
           formatUserName={format}
-          userName="goku"
-          name="Son Goku"
-        />
+          userName="goku">
+        Son Goku
+        {/* prom childre */}
+        </TwitterFollowCard>
+        
         <TwitterFollowCard
-          isFollowing={false}
+          isFollowing
           formatUserName={format}
-          userName="vegeta"
-          name="Vegeta"
-        />
+          userName="vegeta">
+        Vegeta
+        </TwitterFollowCard>
 
         <TwitterFollowCard
           isFollowing
           formatUserName={format}
-          userName="goten"
-          name="Son Goten"
-        />
+          userName="goten">
+        Son Goten
+        </TwitterFollowCard>
+      
       </section>
     </>
   );

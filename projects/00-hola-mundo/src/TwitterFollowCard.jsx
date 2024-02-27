@@ -1,8 +1,10 @@
 // eslint-disable-next-line react/prop-types
-export function TwitterFollowCard({ userName, name, isFollowing, formatUserName }) {
+export function TwitterFollowCard({ children, formatUserName,userName, name, isFollowing }) {
   const imageSrc = `https://unavatar.io/twitter/${userName}`;
   
   console.log(isFollowing)
+
+
   
   return (
     
@@ -16,7 +18,7 @@ export function TwitterFollowCard({ userName, name, isFollowing, formatUserName 
           />
 
           <div className="tw-followCard-content">
-            <strong>{name}</strong>
+            <strong>{children}</strong>
             <span className="tw-followCard-infoUsername">{formatUserName(userName)}</span>
           </div>
         </header>
