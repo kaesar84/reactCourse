@@ -1,27 +1,36 @@
 import "./App.css";
-
 import { TwitterFollowCard } from "./TwitterFollowCard.jsx";
 
+const users = [
+  {
+    userName: "goku",
+    name: "Son Goku",
+    isFollowing: true,
+  },
+  {
+    userName: "vegeta",
+    name: "Vegeta",
+    isFollowing: false,
+  },
+  {
+    userName: "goten",
+    name: "Son Goten",
+    isFollowing: true,
+  },
+];
+
 export function App() {
-  const format = (userName) => `@${userName}`;
   return (
-    <>
-      <section className="App">
-        <TwitterFollowCard formatUserName={format} userName="goku" initialIsFollowing={true}>
-          Son Goku
-          {/* prom childre */}
+    <section className="App">
+      {users.map(({ userName, name, isFollowing }) => (
+        <TwitterFollowCard
+          key={userName}
+          userName={userName}
+          initialIsFollowing={isFollowing}
+        >
+          {name}
         </TwitterFollowCard>
-
-        <TwitterFollowCard formatUserName={format} userName="vegeta">
-          Vegeta
-        </TwitterFollowCard>
-
-        <TwitterFollowCard formatUserName={format} userName="goten">
-          Son Goten
-        </TwitterFollowCard>
-      </section>
-    </>
+      ))}
+    </section>
   );
 }
-
-// 1:38

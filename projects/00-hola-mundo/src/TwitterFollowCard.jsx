@@ -2,7 +2,7 @@ import { useState } from "react";
 
 /* eslint-disable react/prop-types */
 // eslint-disable-next-line react/prop-types
-export function TwitterFollowCard({ children, formatUserName, userName, initialIsFollowing }) {
+export function TwitterFollowCard({ children, userName, initialIsFollowing }) {
   // Inicializa el estado, la prop le da el valor inicial, en este caso boolean 
   const [isFollowing, setIsFollowing] = useState(initialIsFollowing);
   // Equivalencia
@@ -37,7 +37,7 @@ export function TwitterFollowCard({ children, formatUserName, userName, initialI
         <div className="tw-followCard-content">
           <strong>{children}</strong>
           <span className="tw-followCard-infoUsername">
-            {formatUserName(userName)}
+            @{userName}
           </span>
         </div>
       </header>
