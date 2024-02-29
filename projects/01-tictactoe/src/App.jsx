@@ -3,8 +3,8 @@ import "./App.css";
 
 const TURNS = {
   // turnos
-  X: "x",
-  O: "o",
+  X: "❌",
+  O: "⭕",
 };
 
 const WINNER_COMBOS = [
@@ -97,7 +97,7 @@ function App() {
 
   return (
     <main className="board">
-      <h1>Tic Tact Toe</h1>
+      <h1>Tic Tact Toe </h1>
       <button onClick={resetGame}>Empezar de nuevo</button>
 
       <section className="game">
