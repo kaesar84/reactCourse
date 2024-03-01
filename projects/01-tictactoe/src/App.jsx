@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import confetti from "canvas-confetti";
 
 const TURNS = {
   // turnos
@@ -72,6 +73,38 @@ function App() {
     return newBoard.every((square) => square != null);
   };
 
+
+function confettiFireWorks() {
+      let duration = 1 * 1000;
+      let animationEnd = Date.now() + duration;
+      let defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+      function randomInRange(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
+      let interval = setInterval(function () {
+        let timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
+
+        let particleCount = 50 * (timeLeft / duration);
+        // since particles fall down, start a bit higher than random
+        confetti({
+          ...defaults,
+          particleCount,
+          origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+        });
+        confetti({
+          ...defaults,
+          particleCount,
+          origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+        });
+      }, 250);
+}
+
   const updateBoard = (index) => {
     // no actualizamo posición si hay contenido, retun no hace nada
     if (board[index] || winner) return;
@@ -88,6 +121,7 @@ function App() {
     // revisar si hay un ganador
     const newWinner = checkWinner(newBoard);
     if (newWinner) {
+      confettiFireWorks()
       setWinner(newWinner);
       // TODO check if game is over
     } else if (checkEndGame(newBoard)) {
